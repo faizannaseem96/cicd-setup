@@ -11,7 +11,7 @@ jobs:
   swiftlint:
     docker:
       - image: dantoml/swiftlint:latest
-     steps:
+    steps:
       - checkout
       - run: swiftlint lint --reporter junit | tee result.xml
       - store_artifacts:
