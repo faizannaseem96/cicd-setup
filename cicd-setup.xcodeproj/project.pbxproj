@@ -13,7 +13,18 @@
 		74CF3D4B289A4C2A005C25A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74CF3D49289A4C2A005C25A6 /* Main.storyboard */; };
 		74CF3D4D289A4C2C005C25A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74CF3D4C289A4C2C005C25A6 /* Assets.xcassets */; };
 		74CF3D50289A4C2C005C25A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74CF3D4E289A4C2C005C25A6 /* LaunchScreen.storyboard */; };
+		74CF3D5E289A4C3A005C25A6 /* cicd_setupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF3D5D289A4C3A005C25A6 /* cicd_setupTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		74CF3D5F289A4C3A005C25A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74CF3D38289A4C2A005C25A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74CF3D3F289A4C2A005C25A6;
+			remoteInfo = "cicd-setup";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		74CF3D40289A4C2A005C25A6 /* cicd-setup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cicd-setup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +35,19 @@
 		74CF3D4C289A4C2C005C25A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74CF3D4F289A4C2C005C25A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74CF3D51289A4C2C005C25A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74CF3D5B289A4C3A005C25A6 /* cicd-setupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cicd-setupTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		74CF3D5D289A4C3A005C25A6 /* cicd_setupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cicd_setupTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		74CF3D3D289A4C2A005C25A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74CF3D58289A4C3A005C25A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				74CF3D42289A4C2A005C25A6 /* cicd-setup */,
+				74CF3D5C289A4C3A005C25A6 /* cicd-setupTests */,
 				74CF3D41289A4C2A005C25A6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				74CF3D40289A4C2A005C25A6 /* cicd-setup.app */,
+				74CF3D5B289A4C3A005C25A6 /* cicd-setupTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +87,14 @@
 				74CF3D51289A4C2C005C25A6 /* Info.plist */,
 			);
 			path = "cicd-setup";
+			sourceTree = "<group>";
+		};
+		74CF3D5C289A4C3A005C25A6 /* cicd-setupTests */ = {
+			isa = PBXGroup;
+			children = (
+				74CF3D5D289A4C3A005C25A6 /* cicd_setupTests.swift */,
+			);
+			path = "cicd-setupTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +117,24 @@
 			productReference = 74CF3D40289A4C2A005C25A6 /* cicd-setup.app */;
 			productType = "com.apple.product-type.application";
 		};
+		74CF3D5A289A4C3A005C25A6 /* cicd-setupTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74CF3D61289A4C3A005C25A6 /* Build configuration list for PBXNativeTarget "cicd-setupTests" */;
+			buildPhases = (
+				74CF3D57289A4C3A005C25A6 /* Sources */,
+				74CF3D58289A4C3A005C25A6 /* Frameworks */,
+				74CF3D59289A4C3A005C25A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74CF3D60289A4C3A005C25A6 /* PBXTargetDependency */,
+			);
+			name = "cicd-setupTests";
+			productName = "cicd-setupTests";
+			productReference = 74CF3D5B289A4C3A005C25A6 /* cicd-setupTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -99,6 +147,10 @@
 				TargetAttributes = {
 					74CF3D3F289A4C2A005C25A6 = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					74CF3D5A289A4C3A005C25A6 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 74CF3D3F289A4C2A005C25A6;
 					};
 				};
 			};
@@ -116,6 +168,7 @@
 			projectRoot = "";
 			targets = (
 				74CF3D3F289A4C2A005C25A6 /* cicd-setup */,
+				74CF3D5A289A4C3A005C25A6 /* cicd-setupTests */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +181,13 @@
 				74CF3D50289A4C2C005C25A6 /* LaunchScreen.storyboard in Resources */,
 				74CF3D4D289A4C2C005C25A6 /* Assets.xcassets in Resources */,
 				74CF3D4B289A4C2A005C25A6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74CF3D59289A4C3A005C25A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +204,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		74CF3D57289A4C3A005C25A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CF3D5E289A4C3A005C25A6 /* cicd_setupTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		74CF3D60289A4C3A005C25A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74CF3D3F289A4C2A005C25A6 /* cicd-setup */;
+			targetProxy = 74CF3D5F289A4C3A005C25A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		74CF3D49289A4C2A005C25A6 /* Main.storyboard */ = {
@@ -336,6 +412,42 @@
 			};
 			name = Release;
 		};
+		74CF3D62289A4C3A005C25A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FLY8DC9K57;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ae.cicd-setupTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cicd-setup.app/cicd-setup";
+			};
+			name = Debug;
+		};
+		74CF3D63289A4C3A005C25A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FLY8DC9K57;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ae.cicd-setupTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cicd-setup.app/cicd-setup";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -353,6 +465,15 @@
 			buildConfigurations = (
 				74CF3D55289A4C2C005C25A6 /* Debug */,
 				74CF3D56289A4C2C005C25A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74CF3D61289A4C3A005C25A6 /* Build configuration list for PBXNativeTarget "cicd-setupTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74CF3D62289A4C3A005C25A6 /* Debug */,
+				74CF3D63289A4C3A005C25A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
