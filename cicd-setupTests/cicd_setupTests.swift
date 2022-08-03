@@ -31,5 +31,11 @@ class cicd_setupTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testApp() {
+        let i = 1
+        
+        XCTAssert(i == 1, "We did it.")
+    }
 
 }
