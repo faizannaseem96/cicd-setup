@@ -37,5 +37,4 @@ class cicd_setupTests: XCTestCase {
         
         XCTAssert(i == 0, "updated unit tests")
     }
-
 }
