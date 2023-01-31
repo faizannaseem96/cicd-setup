@@ -33,7 +33,7 @@ class cicd_setupTests: XCTestCase {
     }
     
     func testApp() {
-        let i = 0
+        let i = 1
         
         XCTAssert(i == 0, "updated unit tests")
     }
