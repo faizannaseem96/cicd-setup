@@ -1,4 +1,4 @@
-app_identifier("com.ae.cicd-setup") # The bundle identifier of your app
+app_identifier("com.ae.uc.cicd-setup123") # The bundle identifier of your app
 apple_id("ansarifaizan.n@gmail.com") # Your Apple Developer Portal username
 
 

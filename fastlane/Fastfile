@@ -13,8 +13,8 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-APP_ID = "com.ae.cicd-setup"
-PROVISIONING_PROFILE_APPSTORE = "match AppStore com.ae.cicd-setup"
+APP_ID = "com.ae.uc.cicd-setup123"
+PROVISIONING_PROFILE_APPSTORE = "match AppStore com.ae.uc.cicd-setup123"
 TEAM_ID = "FLY8DC9K57"
 
 settings_to_override_release = { 

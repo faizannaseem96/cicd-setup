@@ -56,9 +56,5 @@ workflows:
   deploy-build: 
     jobs:
       #- build
-      - request-ipa-and-prepare-release:
-          type: approval
-      - ios-release:
-          requires:
-            - request-ipa-and-prepare-release
+      - ios-release
       
