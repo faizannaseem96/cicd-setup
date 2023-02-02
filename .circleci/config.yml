@@ -45,7 +45,7 @@ jobs:
 
       - checkout
       - run: bundle install
-      - run: bundle exec fastlane upload_firebase
+      - run: bundle exec fastlane release_ipa
 
       - store_artifacts:
           path: ios/cicd-setup.ipa
