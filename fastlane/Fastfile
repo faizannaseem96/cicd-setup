@@ -59,11 +59,8 @@ platform :ios do
       skip_profile_detection:true,
       configuration: "Release",
       #workspace: "cicd-setup.xcodeproj",
-      xcargs: settings_to_override_release,
+      xcargs: "-allowProvisioningUpdates",
       export_options: {
-        provisioningProfiles: { 
-          APP_ID => PROVISIONING_PROFILE_APPSTORE
-        },
         installerSigningCertificate: "99 Logo Studio Limited"
       }
     )
