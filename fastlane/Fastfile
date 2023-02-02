@@ -50,7 +50,8 @@ platform :ios do
     match(
       app_identifier: APP_ID,
       readonly: is_ci,
-      type:"appstore"
+      type:"appstore",
+      git_url:"https://github.com/faizannaseem96/cicd-setup.git"
     )
    build_app(
       scheme:"cicd-setup", 
