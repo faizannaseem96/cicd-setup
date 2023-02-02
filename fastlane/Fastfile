@@ -58,7 +58,7 @@ platform :ios do
       export_method:"app-store",
       skip_profile_detection:true,
       configuration: "Release",
-      workspace: "cicd-setup.xcodeproj",
+      #workspace: "cicd-setup.xcodeproj",
       xcargs: settings_to_override_release,
       export_options: {
         provisioningProfiles: { 
