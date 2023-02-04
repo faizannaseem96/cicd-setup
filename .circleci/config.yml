@@ -18,6 +18,7 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
+      - run: pod install
       - run: fastlane scan # Run tests using Fastlane
 
       # Collect XML test results data to show in the UI, and save the same XML
@@ -28,27 +29,39 @@ jobs:
           path: test_output
           destination: scan-output
 
+  # ios-release:
+  #   macos:
+  #     xcode: 14.1
+
+  #   # use a --login shell so our "set Ruby version" command gets picked up for later steps
+  #   shell: /bin/bash --login -o pipefail
+
+  #   steps:
+  #     - checkout
+
+  #     - run:
+  #         name: "Create .env file"
+  #         command: echo -e "APP_STORE_CONNECT_API_KEY_ISSUER_ID=${APP_STORE_CONNECT_API_KEY_ISSUER_ID}\nAPP_STORE_CONNECT_API_KEY_KEY=${APP_STORE_CONNECT_API_KEY_KEY}\nAPP_STORE_CONNECT_API_KEY_KEY_ID=${APP_STORE_CONNECT_API_KEY_KEY_ID}\nAPP_STORE_CONNECT_API_KEY_KEY_ID=true" > .env
+      
+
+  #     - checkout
+  #     - run: bundle install
+  #     - run: bundle exec fastlane release_ipa
+
+  #     - store_artifacts:
+  #         path: ios/cicd-setup.ipa
+
   ios-release:
     macos:
       xcode: 14.1
-
-    # use a --login shell so our "set Ruby version" command gets picked up for later steps
-    shell: /bin/bash --login -o pipefail
-
+    environment:
+      FL_OUTPUT_DIR: output
     steps:
       - checkout
-
-      - run:
-          name: "Create .env file"
-          command: echo -e "APP_STORE_CONNECT_API_KEY_ISSUER_ID=${APP_STORE_CONNECT_API_KEY_ISSUER_ID}\nAPP_STORE_CONNECT_API_KEY_KEY=${APP_STORE_CONNECT_API_KEY_KEY}\nAPP_STORE_CONNECT_API_KEY_KEY_ID=${APP_STORE_CONNECT_API_KEY_KEY_ID}\nAPP_STORE_CONNECT_API_KEY_KEY_ID=true" > .env
-      
-
-      - checkout
+      - run: echo 'chruby ruby-2.6' >> ~/.bash_profile
       - run: bundle install
-      - run: bundle exec fastlane release_ipa
-
-      - store_artifacts:
-          path: ios/cicd-setup.ipa
+      - run: curl -sL https://firebase.tools | bash
+      - run: bundle exec fastlane release_app
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -56,5 +69,5 @@ workflows:
   deploy-build: 
     jobs:
       #- build
-      - ios-release
+    - ios-release
       

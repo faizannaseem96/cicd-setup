@@ -13,62 +13,54 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-APP_ID = "com.ae.uc.cicd-setup123"
-PROVISIONING_PROFILE_APPSTORE = "match AppStore com.ae.uc.cicd-setup123"
-TEAM_ID = "FLY8DC9K57"
-
-settings_to_override_release = { 
-  :BUNDLE_IDENTIFIER => APP_ID, 
-  :PROVISIONING_PROFILE_SPECIFIER => PROVISIONING_PROFILE_APPSTORE, 
-  :DEVELOPMENT_TEAM => TEAM_ID, 
-}
-
 default_platform(:ios)
 
 platform :ios do
-
-  before_all do
-    setup_circle_ci
+  desc "Description of what the lane does"
+  lane :custom_lane do
+    # add actions here: https://docs.fastlane.tools/actions
   end
 
-  desc "Export Release IPA & upload Release to App Store"
-  lane :release_ipa do
-    api_key = app_store_connect_api_key( 
-      key_id: $APP_STORE_CONNECT_API_KEY_KEY_ID, 
-      issuer_id: $APP_STORE_CONNECT_API_KEY_ISSUER_ID, 
-      key_content: $APP_STORE_CONNECT_API_KEY_KEY,
-      is_key_content_base64: true
+  desc "To export our app"
+  lane :export_app do
+    gym(
+      workspace: "cicd-setup.xcworkspace",
+      scheme: "cicd-setup",
+      clean: true,
+      export_xcargs: "-allowProvisioningUpdates",
+      output_directory: "./build",
+      output_name: "ReleaseApp.ipa",
     )
-    increment_build_number(
-      build_number: app_store_build_number(
-        api_key: api_key,
-        initial_build_number: 0,
-        version: get_version_number(xcodeproj: "cicd-setup.xcodeproj"),
-        live: false
-      ) + 1,
-    )
-    match(
-      app_identifier: APP_ID,
-      readonly: false,
-      type:"appstore",
-      git_url:"https://github.com/faizannaseem96/cicd-setup.git"
-    )
-   build_app(
-      scheme:"cicd-setup", 
-      export_method:"app-store",
-      skip_profile_detection:true,
-      configuration: "Release",
-      #workspace: "cicd-setup.xcodeproj",
-      xcargs: "-allowProvisioningUpdates",
-      export_options: {
-        installerSigningCertificate: "99 Logo Studio Limited"
-      }
-    )
+  end
+
+
+  desc "To deliver our app to Testflight"
+  lane :upload_app do
     deliver(
-      api_key: api_key,
-      submit_for_review: false,
-      force: true,
-      precheck_include_in_app_purchases: false
+      ipa: "./build/ReleaseApp.ipa",
+      skip_screenshots: true,
+      skip_metadata: true,
+      skip_app_version_update: true,
+      force: true
+    )  
+  end
+
+  desc "To deliver our app to Firebase"
+  lane :upload_firebase_app do
+    firebase_app_distribution(
+        ipa_path: "./build/ReleaseApp.ipa",
+        app: "1:1029978588996:ios:c1bb15ae733377be077911",
+        release_notes: "Lots of amazing new features to test out!"
     )
+  end
+
+
+
+  desc "To release our app"
+  lane :release_app do
+    increment_build_number
+    export_app
+    upload_firebase_app
+    upload_app
   end
 end
