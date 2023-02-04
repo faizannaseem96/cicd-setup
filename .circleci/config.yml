@@ -54,16 +54,18 @@ jobs:
   ios-release:
     macos:
       xcode: 14.1
-
-      shell: /bin/bash --login -o pipefail
+    working_directory: /Users/distiller/project
     environment:
       FL_OUTPUT_DIR: output
+    shell: /bin/bash --login -o pipefail
     steps:
       - checkout
       - run: bundle install
       - run: curl -sL https://firebase.tools | bash
       - run: pod install
       - run: bundle exec fastlane release_app
+      - store_artifacts:
+          path: output/Game.ipa
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
