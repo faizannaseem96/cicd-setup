@@ -28,7 +28,6 @@ platform :ios do
       scheme: "cicd-setup",
       clean: true,
       export_xcargs: "-allowProvisioningUpdates",
-      output_directory: "./build",
       output_name: "ReleaseApp.ipa",
     )
   end
@@ -37,7 +36,7 @@ platform :ios do
   desc "To deliver our app to Testflight"
   lane :upload_app do
     deliver(
-      ipa: "./build/ReleaseApp.ipa",
+      ipa: "ReleaseApp.ipa",
       skip_screenshots: true,
       skip_metadata: true,
       skip_app_version_update: true,
@@ -48,7 +47,7 @@ platform :ios do
   desc "To deliver our app to Firebase"
   lane :upload_firebase_app do
     firebase_app_distribution(
-        ipa_path: "./build/ReleaseApp.ipa",
+        ipa_path: "ReleaseApp.ipa",
         app: "1:1029978588996:ios:c1bb15ae733377be077911",
         release_notes: "Lots of amazing new features to test out!"
     )
