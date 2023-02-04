@@ -27,8 +27,7 @@ platform :ios do
       workspace: "cicd-setup.xcworkspace",
       scheme: "cicd-setup",
       clean: true,
-      export_xcargs: "-allowProvisioningUpdates",
-      output_name: "ReleaseApp.ipa",
+      export_method: "app-store"
     )
   end
 
@@ -59,7 +58,7 @@ platform :ios do
   lane :release_app do
     increment_build_number
     export_app
-    upload_firebase_app
-    upload_app
+    #upload_firebase_app
+    #upload_app
   end
 end
