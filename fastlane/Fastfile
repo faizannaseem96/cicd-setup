@@ -23,6 +23,7 @@ platform :ios do
 
   desc "To export our app"
   lane :export_app do
+    match(type: "appstore")
     gym(
       workspace: "cicd-setup.xcworkspace",
       scheme: "cicd-setup",
