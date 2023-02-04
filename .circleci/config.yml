@@ -60,6 +60,7 @@ jobs:
       - checkout
       - run: bundle install
       - run: curl -sL https://firebase.tools | bash
+      - run: pod install
       - run: bundle exec fastlane release_app
 
 # Invoke jobs via workflows
