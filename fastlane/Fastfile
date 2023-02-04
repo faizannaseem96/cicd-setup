@@ -23,7 +23,7 @@ platform :ios do
 
   desc "To export our app"
   lane :export_app do
-    match(type: "appstore", readonly: is_ci)
+    match(git_basic_authorization: Base64.strict_encode64("github_username:github_personal_token"), type: "appstore", readonly: is_ci)
     gym(
       workspace: "cicd-setup.xcworkspace",
       scheme: "cicd-setup",
