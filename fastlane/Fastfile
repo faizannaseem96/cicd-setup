@@ -1,14 +1,4 @@
 
-#   # desc "To deliver our app to Firebase"
-#   # lane :upload_firebase_app do
-#   #   firebase_app_distribution(
-#   #       ipa_path: "ReleaseApp.ipa",
-#   #       app: "1:1029978588996:ios:c1bb15ae733377be077911",
-#   #       release_notes: "Lots of amazing new features to test out!"
-#   #   )
-#   # end
-
-
 APP_ID = "com.ae.uc.cicd-setup123"
 PROVISIONING_PROFILE_APPSTORE = "match AppStore com.ae.uc.cicd-setup123"
 TEAM_ID = "FLY8DC9K57"

@@ -51,6 +51,7 @@ jobs:
 workflows:
   deploy-build: 
     jobs:
+    - build-and-test
     - ios-release:
           filters:
             branches:
