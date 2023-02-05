@@ -73,7 +73,8 @@ platform :ios do
     )
     match(
       type: "appstore",
-      readonly: is_ci
+      app_identifier: ["com.ae.uc.cicd-setup123"],
+      readonly: true
     )
     gym(
       workspace: "cicd-setup.xcworkspace",
