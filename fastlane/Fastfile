@@ -71,7 +71,10 @@ platform :ios do
         version: get_version_number(xcodeproj: "cicd-setup.xcodeproj")
       ) + 1,
     )
-    match(type: "appstore")
+    match(
+      type: "appstore",
+      readonly: is_ci
+    )
     gym(
       workspace: "cicd-setup.xcworkspace",
       scheme: "cicd-setup",
