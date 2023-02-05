@@ -24,7 +24,7 @@ platform :ios do
   desc "To export our app"
   lane :export_app do
     match(
-      type: "development", 
+      type: "appstore", 
       readonly: is_ci
     )
     gym(
