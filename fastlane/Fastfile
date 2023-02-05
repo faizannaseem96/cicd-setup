@@ -31,7 +31,12 @@ platform :ios do
       workspace: "cicd-setup.xcworkspace",
       scheme: "cicd-setup",
       clean: true,
-      export_method: "app-store"
+      export_method: "app-store",
+      export_options: {
+        provisioningProfiles: { 
+          "com.ae.uc.cicd-setup123" => "match AppStore com.ae.uc.cicd-setup123",
+        }
+      }
     )
   end
 
