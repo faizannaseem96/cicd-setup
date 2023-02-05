@@ -36,7 +36,7 @@ platform :ios do
       key_content: $APP_STORE_CONNECT_API_KEY_KEY,
       is_key_content_base64: true
     )
-    
+
     increment_build_number(
       build_number: app_store_build_number(
         api_key: api_key,
@@ -67,11 +67,13 @@ platform :ios do
       }
     )
 
+    #deliver app to Firebase Distribution 
     firebase_app_distribution(
         app: "1:1029978588996:ios:c1bb15ae733377be077911",
         release_notes: "Lots of amazing new features to test out!"
     )
 
+    #deliver app to Appstore Connect or Testflight
     deliver(
       api_key: api_key,
       submit_for_review: false,

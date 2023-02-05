@@ -34,6 +34,6 @@ class cicd_setupTests: XCTestCase {
     
     func testApp() {
         let i = 0
-        XCTAssert(i == 0, "updated unit tests")
+        XCTAssert(i == 0, "Yes it is zero!")
     }
 }
