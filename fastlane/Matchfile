@@ -1,7 +1,7 @@
 git_url("https://github.com/faizannaseem96/cicd-certificates.git")
 
 storage_mode("git")
-git_basic_authorization("asdasdasd")
+git_basic_authorization("ZmFpemFubmFzZWVtOTY6Z2hwX2k1TmMzU056N0xrZk4xOUNaV2hhV1NERk9OOVhETDNYMjlIZQ==")
 
 type("development") # The default type, can be: appstore, adhoc, enterprise or development
 
