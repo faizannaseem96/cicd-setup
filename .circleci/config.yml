@@ -53,7 +53,7 @@ jobs:
 
   ios-release:
     macos:
-      xcode: 13.3
+      xcode: 14.1
     working_directory: /Users/distiller/project
     environment:
       FL_OUTPUT_DIR: output

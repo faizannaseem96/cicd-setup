@@ -136,7 +136,7 @@ platform :ios do
       readonly: false,
       type:"appstore"
     )
-   build_app(
+    build_app(
       scheme:"cicd-setup", 
       export_method:"app-store",
       skip_profile_detection:true,
