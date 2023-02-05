@@ -155,6 +155,9 @@ platform :ios do
       submit_for_review: false,
       force: true,
       precheck_include_in_app_purchases: false
+      skip_screenshots: true,
+      skip_metadata: true,
+      skip_app_version_update: true,
     )
   end
 end
