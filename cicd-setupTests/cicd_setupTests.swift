@@ -33,6 +33,6 @@ class cicd_setupTests: XCTestCase {
     }
     
     func testApp() {
-        XCTAssert(2 * 2 == 4, "Yes it is true!")
+        XCTAssert(3 * 3 == 9, "Yes it is true!")
     }
 }
